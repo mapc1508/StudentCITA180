@@ -20,7 +20,8 @@ namespace Student180
 
             if (startDate.DayOfWeek.ToString() == "Sunday")
             {
-                Console.WriteLine("You cannot have classes on this day!");
+                Console.WriteLine("You cannot have classes on Sunday!");
+                return;
 
             }
 
