@@ -9,12 +9,24 @@ namespace Student180
     class Person
     {
         protected string name, lastName;
+        static int count = 0;
+        private int idObject;
+        public int IdObject
+        {
+            get 
+            { 
+                return idObject; 
+            }
+        }
         public Person()
         {
-            
+            ++count;
+            idObject = count;
         }
         public Person(string name, string lastName)
         {
+            ++count;
+            idObject = count;            
             this.name = name;
             this.lastName = lastName;
         }
@@ -134,7 +146,7 @@ namespace Student180
             Student temp = (Student)o;
             return String.Compare(this.Name, temp.Name);
         }
-        
+        // Since my email ends with 6 (mapc1806@aubih.edu.ba) I had to compare names
        
     }
 

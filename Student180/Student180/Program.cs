@@ -13,7 +13,7 @@ namespace Student180
 
             //Student student1 = new Student();
             //student1.Name = "Mirza";
-            
+
 
             //Student student2 = new Student("Mirza", "Pecanac", "miki@hotmail.com", "SA");
             //Student student3 = new Student("Amira", "Halilovic", "amira@bih.net.ba");
@@ -57,7 +57,7 @@ namespace Student180
                 ++y;
             }
 
-
+            //Console.WriteLine(student3.IdObject);
 
 
             
