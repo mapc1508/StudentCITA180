@@ -27,7 +27,6 @@ namespace Student180
             for (int i = 0; i <= numOfDays; i += 7)
             {
                 Console.Write(startDate.DayOfWeek.ToString().ToUpper() + ":  ");
-                int j = 0;
                 Console.WriteLine(startDate.AddDays(i).ToString("dd/MM/yyyy") + "\n" + "\t" + " From " + startTime.ToString() +
                      " to " + endDateTime.TimeOfDay.ToString());
                 Console.WriteLine();

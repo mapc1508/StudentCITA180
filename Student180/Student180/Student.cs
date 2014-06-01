@@ -55,7 +55,7 @@ namespace Student180
                     base.name = value;
                 }
                 else
-                    base.name = "";
+                    base.name = null;
             }
         }
         public string Email { get; set; }
@@ -153,6 +153,9 @@ namespace Student180
         {
             return GetStudentInfo();
         }
+        
+        
+    
     }
 
 }

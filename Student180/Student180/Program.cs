@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections;
 namespace Student180
 {
     class Program
@@ -11,21 +11,20 @@ namespace Student180
         static void Main(string[] args)
         {
 
-            //Student student1 = new Student();
-            //student1.Name = "Mirza";
+            Student student1 = new Student();
+            student1.Name = "Mirza";
 
-            //Student student2 = new Student("Mirza", "Pecanac", "miki@hotmail.com", "SA");
-            //Student student3 = new Student("Amira", "Halilovic", "amira@bih.net.ba");
+            Student student2 = new Student("Mirza", "Pecanac", "miki@hotmail.com", "SA");
+            Student student3 = new Student("Amira", "Halilovic", "amira@bih.net.ba");
 
-            //Console.WriteLine(student2.GetStudentInfo());
-            //Console.WriteLine(student3.GetStudentInfo());
-            //Console.WriteLine(student1.GetStudentInfo());
-            //Console.WriteLine(student2.ToString());
+            Console.WriteLine(student2.GetStudentInfo());
+            Console.WriteLine(student3.GetStudentInfo());
+            Console.WriteLine(student1.GetStudentInfo());
+            Console.WriteLine(student2.ToString());
 
             Student[] sArray = new Student[10];
             for (int x = 0; x < sArray.Length; ++x)
                 sArray[x] = new Student("XXX", "", "", "");
-
 
             sArray[0].Name = "Sead";
             sArray[1].Name = "Muamer";
@@ -41,7 +40,7 @@ namespace Student180
             //int y = sArray[0].Name.CompareTo(sArray[1].Name);
             //Console.WriteLine(y);
 
-            Console.WriteLine("Original list:\n");
+            Console.WriteLine("\nOriginal list:\n");
             int i = 1;
             foreach (Student s in sArray)
             {
@@ -57,11 +56,37 @@ namespace Student180
                 ++y;
             }
 
-            //Console.WriteLine(student3.IdObject);
+            Console.WriteLine("\nstudent3 object's ID is " + student3.IdObject);
+
+           //Queue collection...
+            Queue<Student> queueStudents = new Queue<Student>();
+            for (i = 0; i < sArray.Length; ++i )
+                queueStudents.Enqueue(sArray[i]);
+            queueStudents.Enqueue(student1);
+            queueStudents.Enqueue(student2);
+            queueStudents.Enqueue(student3);
+
+            Console.WriteLine("\nNumber of items in the queue is " + queueStudents.Count);
+            Student newStudent1 = queueStudents.Dequeue();
+            Console.WriteLine("\nFirst item removed from queue: " + newStudent1
+            + "\nNumber of items in the queue is decreased by one and is now " + queueStudents.Count);
+            
+            queueStudents.OrderBy(name => name.Name); /*Doesn't sort the queue, 
+                                                       * sorting is used primarily in lists*/
+
+            foreach(Student s in queueStudents)
+            {
+                Console.WriteLine(s.Name);
+            }
+
+            if (queueStudents.Contains(student2))
+            {
+                Console.WriteLine("\nStudent2 object exist within the queue");
+            }
 
 
             // The following part is a scheduler of classes
-            Console.WriteLine("----------------------------------------------");
+            Console.WriteLine("\n----------------------------------------------");
 
             bool twoOrLess = true;
 
