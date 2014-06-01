@@ -25,7 +25,7 @@ namespace Student180
     
     }
     
-    class Student : Person 
+    class Student : Person, IComparable
     {
 
 
@@ -87,10 +87,12 @@ namespace Student180
             this.location = location;
             Email = email;
         }
-
+        /* In the email it says that the last constructor should contain name, lastName and location
+         * but it makes second and third constructor ambiguous. That is the reason why I included email
+         * in the last constructor */
+        
         ~Student()
-        {
-            ;
+        {           
         }
 
         public bool SetName(string input)
@@ -126,5 +128,14 @@ namespace Student180
         {
             return getPersonInfo() + " , " + Email + " , " + Location;
         }      
+    
+        int IComparable.CompareTo(Object o)
+        {
+            Student temp = (Student)o;
+            return String.Compare(this.Name, temp.Name);
+        }
+        
+       
     }
+
 }
