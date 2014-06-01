@@ -9,6 +9,7 @@ namespace Student180
     class Person
     {
         protected string name, lastName;
+        public static string copyright = "Mirza";
         static int count = 0;
         private int idObject;
         public int IdObject
@@ -147,7 +148,11 @@ namespace Student180
             return String.Compare(this.Name, temp.Name);
         }
         // Since my email ends with 6 (mapc1806@aubih.edu.ba) I had to compare names
-       
+
+        public override string ToString()
+        {
+            return GetStudentInfo();
+        }
     }
 
 }
