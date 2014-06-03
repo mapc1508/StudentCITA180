@@ -18,7 +18,7 @@ namespace Student180
             DateTime endDateTime = startDateTime.AddMinutes(duration);
             int numOfDays = numOfWeeks * 7;
 
-            if (startDate.DayOfWeek.ToString() == "Sunday")
+            if (startDate.DayOfWeek == DayOfWeek.Sunday)
             {
                 Console.WriteLine("You cannot have classes on Sunday!");
                 return;

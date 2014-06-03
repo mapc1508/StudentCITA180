@@ -34,8 +34,7 @@ namespace Student180
         public string getPersonInfo()
         {
             return name + " , " + lastName;
-        }
-    
+        } 
     }
     
     class Student : Person, IComparable
@@ -50,12 +49,27 @@ namespace Student180
             }
             set
             {
-                if (SetName(value))
+                char[] charArray = value.ToCharArray();
+
+                if (value.Length < 2)
                 {
-                    base.name = value;
+                    throw (new ArgumentException("Name '" + value + "' must be at least two characters long\n"));
                 }
-                else
-                    base.name = null;
+
+                foreach (char c in charArray)
+                {
+                    if (!char.IsLetter(c))
+                    {
+                        throw (new ArgumentException("Name '" + value + "' can only contain letters\n"));
+                    }
+                }
+
+                if (!char.IsUpper(charArray[0]))
+                {
+                    throw (new ArgumentException("Name '" + value + "' must start with an uppercase letter\n"));
+                }
+
+                base.name = value;               
             }
         }
         public string Email { get; set; }
@@ -81,16 +95,13 @@ namespace Student180
                 else
                     location = "NA";
             }
-
-        }
-       
+        }   
         
         public Student()
         {
         }
         public Student(string name, string lastName, string email) : base(name, lastName) 
         {
-
             Name = name;
             Email = email;
         }
@@ -106,35 +117,6 @@ namespace Student180
         
         ~Student()
         {           
-        }
-
-        public bool SetName(string input)
-        {
-            char[] charArray = input.ToCharArray();
-                      
-            if (input.Length < 2)
-            {
-                Console.WriteLine("Name must be at least two characters long");
-
-                return false; 
-            }
-                     
-            foreach( char c in charArray)
-            {
-                if (!char.IsLetter(c))
-                {
-                    Console.WriteLine("Name can only have letters");
-
-                    return false;
-                }               
-            }
-
-            if (!char.IsUpper(charArray[0]))
-            {
-                Console.WriteLine("Name must start with an uppercase letter");
-                return false;
-            }
-            return true;              
         }
 
         public string GetStudentInfo()
@@ -153,9 +135,5 @@ namespace Student180
         {
             return GetStudentInfo();
         }
-        
-        
-    
     }
-
 }

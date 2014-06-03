@@ -11,12 +11,22 @@ namespace Student180
         static void Main(string[] args)
         {
 
+            try
+            {
+                Student student4 = new Student();
+                //student4.Name = "X";
+                //student4.Name = "xxx";
+                //student4.Name = "123";
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message + "\n" + e.StackTrace + "\n");
+                Environment.Exit(0);
+            }
+
             Student student1 = new Student();
-            student1.Name = "Mirza";
-
             Student student2 = new Student("Mirza", "Pecanac", "miki@hotmail.com", "SA");
-            Student student3 = new Student("Amira", "Halilovic", "amira@bih.net.ba");
-
+            Student student3 = new Student("Mirza", "Halilovic", "amira@bih.net.ba");
             Console.WriteLine(student2.GetStudentInfo());
             Console.WriteLine(student3.GetStudentInfo());
             Console.WriteLine(student1.GetStudentInfo());
