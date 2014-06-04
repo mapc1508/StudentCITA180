@@ -14,13 +14,15 @@ namespace Student180
             try
             {
                 Student student4 = new Student();
-                //student4.Name = "X";
+                Console.WriteLine(student4.GetType());
+                student4.Name = "X";
                 //student4.Name = "xxx";
                 //student4.Name = "123";
             }
             catch (ArgumentException e)
             {
                 Console.WriteLine(e.Message + "\n" + e.StackTrace + "\n");
+                
                 Environment.Exit(0);
             }
 

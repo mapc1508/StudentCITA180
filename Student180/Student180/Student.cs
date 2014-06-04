@@ -53,6 +53,7 @@ namespace Student180
 
                 if (value.Length < 2)
                 {
+                    
                     throw (new ArgumentException("Name '" + value + "' must be at least two characters long\n"));
                 }
 
